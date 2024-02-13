@@ -11,6 +11,7 @@ import axios from "axios";
 import { IUser } from "../interfaces/IUser";
 import { setAccessToken, setRefreshToken } from "../util/localStorageService";
 import { useNavigate } from "react-router-dom";
+import CustomAlert from "../mui/CustomAlert";
 function Login(): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
 const navigate = useNavigate()
@@ -123,12 +124,14 @@ const navigate = useNavigate()
        setAccessToken(userData.data.accessToken)
         setRefreshToken(userData.data.refreshToken)
         navigate('/chats')
+    
       }
       
     })();
   }, [user]);
 
   return (
+    <>
     <div className="h-screen min-w-full md:p-16 ">
       <div className=" h-full flex ">
         <div className=" h-full flex-1 rounded-tl-2xl rounded-bl-2xl flex flex-col space-y-4 items-center justify-center pl-10 pr-10 md:pl-16 md:pr-16 ">
@@ -138,7 +141,7 @@ const navigate = useNavigate()
             className="w-full !bg-black !text-white hover:!bg-black hover:!text-white hover:!border-white"
             size="large"
             onClick={() => loginWithGithub()}
-          >
+            >
             Login With GitHub
           </Button>
           <Button
@@ -147,7 +150,7 @@ const navigate = useNavigate()
             className="w-full !bg-white !text-black hover:!bg-white hover:!text-black hover:!border-white"
             size="large"
             onClick={() => login()}
-          >
+            >
             Login With Google
           </Button>
           <Button
@@ -156,7 +159,7 @@ const navigate = useNavigate()
             className="w-full !bg-white !text-black hover:!bg-white hover:!text-black hover:!border-white"
             size="large"
             onClick={() => logOut()}
-          >
+            >
             LogOut With Google
           </Button>
           <Button
@@ -165,7 +168,7 @@ const navigate = useNavigate()
             className="w-full !bg-white !text-black hover:!bg-white hover:!text-black hover:!border-white"
             size="large"
             onClick={handleMicrosoftLoginPopup}
-          >
+            >
             Login With Microsoft
           </Button>
           <Button
@@ -174,7 +177,7 @@ const navigate = useNavigate()
             className="w-full !bg-white !text-black hover:!bg-white hover:!text-black hover:!border-white"
             size="large"
             onClick={handleMicrosoftLogoutPopup}
-          >
+            >
             LogOut With Microsoft
           </Button>
         </div>
@@ -182,7 +185,8 @@ const navigate = useNavigate()
           <img src="" className="h-full" alt="illustrations" />
         </div>
       </div>
-    </div>
+      </div>      
+            </>
   );
 }
 

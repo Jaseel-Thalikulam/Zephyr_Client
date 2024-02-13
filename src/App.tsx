@@ -9,6 +9,7 @@ import { MsalProvider } from '@azure/msal-react';
 import Chats from "./pages/Chats";
 import { IMicrosoftAzureAccountInstance } from "./interfaces/IMicrosoftAzureAccountInstance";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { Interceptor } from "./interceptor/Interceptor";
 function App({ instance }:IMicrosoftAzureAccountInstance ): JSX.Element {
   const [primary, setPrimary] = useState("#fc03df");
   const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
@@ -41,6 +42,7 @@ console.log(instance,"instance form app.jsx");
             <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
               
           <BrowserRouter>
+                <Interceptor />
             <Routes>
               <Route path="*" element={<Login />} />
               <Route path="/chats" element={<Chats />} />

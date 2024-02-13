@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { PublicClientApplication, EventType,AccountEntity, AccountInfo } from '@azure/msal-browser';
 import { msalConfig } from './util/authConfig.ts';
+import { Interceptor } from './interceptor/Interceptor.tsx';
 
 const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -40,6 +41,8 @@ msalInstance.addEventCallback((event) => {
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   // <StrictMode>
+
     <App instance={msalInstance}/>
+  
   // </StrictMode>,
 )
