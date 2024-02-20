@@ -6,9 +6,6 @@ const SERVER_URI = import.meta.env.VITE_SERVER_URI as string
 export const getUser = async (user:IUser):Promise<AxiosResponse |null> => {
     try {
 
-       
-        
-
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString)
         const gitAuthCode = urlParams.get("code");
@@ -21,11 +18,7 @@ export const getUser = async (user:IUser):Promise<AxiosResponse |null> => {
             })
 
         } else {
-          
-            console.log("user");
-            console.log(user);
-            
-            
+                      
             if (user && user.email) {   
                 console.log(user,"user");
                 

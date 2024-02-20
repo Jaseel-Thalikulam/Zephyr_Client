@@ -1,13 +1,11 @@
 import axios from 'axios'
-import { getAccessToken, getRefreshToken, setAccessToken } from '../util/localStorageService';
+import { getAccessToken, getRefreshToken, removeTokens, setAccessToken } from '../util/localStorageService';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import CustomAlert from '../mui/CustomAlert';
 
 const SERVER_URI = import.meta.env.VITE_SERVER_URI
 const axiosInstance = axios.create();
-
-
 
 
 function Interceptor() {
@@ -46,6 +44,7 @@ function Interceptor() {
 
         const originalRequest = error.config;
         if (error.response.status === 401 && originalRequest.url === `getNewAccessToken`) {
+          await removeTokens()
             navigate('/')
             return Promise.reject(error)
         } 
@@ -69,7 +68,8 @@ function Interceptor() {
                 
             })
         }
-    return Promise.reject(error)
+        return Promise.reject(error)
+        
     }) 
     
 

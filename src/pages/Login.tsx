@@ -11,24 +11,27 @@ import axios from "axios";
 import { IUser } from "../interfaces/IUser";
 import { setAccessToken, setRefreshToken } from "../util/localStorageService";
 import { useNavigate } from "react-router-dom";
-import CustomAlert from "../mui/CustomAlert";
+
+
 function Login(): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
-const navigate = useNavigate()
+  const navigate = useNavigate()
+
+
   const [user, setUser] = useState<IUser>({
     name: "",
     email: "",
     profileImage: "",
     gateWay: "",
   });
-
+  
   interface IGoogleUser {
     access_token?: string;
   }
   const [googleUser, setGoogleUser] = useState<IGoogleUser | undefined>(
     undefined
-  );
-
+    );
+    
   const GITHUB_AUTH_CLIENT_ID = import.meta.env.VITE_GITHUB_AUTH_CLIENT_ID as string;
 
   // Microsoft Azure Auth Setup
@@ -119,10 +122,14 @@ const navigate = useNavigate()
   
       
       let userData = await getUser(user);
-      
       if (userData?.data) {
+        console.log(userData,"cookieie");
        setAccessToken(userData.data.accessToken)
         setRefreshToken(userData.data.refreshToken)
+        
+    
+
+
         navigate('/chats')
     
       }
