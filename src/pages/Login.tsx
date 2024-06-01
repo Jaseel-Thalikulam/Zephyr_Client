@@ -169,7 +169,7 @@ function Login(): JSX.Element {
             >
             LogOut With Google
           </Button>
-          <Button
+          {/* <Button
             loading={isLoading}
             icon={<MicrosoftIcon />}
             className="w-full !bg-white !text-black hover:!bg-white hover:!text-black hover:!border-white"
@@ -186,7 +186,7 @@ function Login(): JSX.Element {
             onClick={handleMicrosoftLogoutPopup}
             >
             LogOut With Microsoft
-          </Button>
+          </Button> */}
         </div>
         <div className="hidden lg:block h-full flex-1 rounded-br-2xl rounded-tr-2xl  justify-center">
           <img src="" className="h-full" alt="illustrations" />

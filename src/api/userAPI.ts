@@ -33,7 +33,7 @@ export const getUser = async (user:IUser):Promise<AxiosResponse |null> => {
         }
 
     } catch (err) {
-        console.log(err);
+        console.error(err);
         throw new Error('Failed to fetch user data');
     }
 }

@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     screens: {
-      "xs": "320",
+      "xs": "576px",
       
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
@@ -24,6 +24,9 @@ export default {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      fontSize: {
+        'xxs': '0.65rem'  // Define a smaller text size than text-xs
+      },
       colors: {
        
         primary: '#FF6347', 

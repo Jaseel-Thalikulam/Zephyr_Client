@@ -13,7 +13,8 @@ import PublicRoute from "./routes/PublicRoute";
 import PrivateRoute from "./routes/PrivateRoute";
 function App({ instance }:IMicrosoftAzureAccountInstance ): JSX.Element {
   const [primary, setPrimary] = useState("#fc03df");
-  const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
+  const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  
   // const initialTheme = {
   //   token: {
   //     colorPrimary: primary,

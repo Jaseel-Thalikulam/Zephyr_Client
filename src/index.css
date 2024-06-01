@@ -8,3 +8,27 @@ body{
     color: aliceblue;
     user-select: none;
 }
+
+/* Hide the default scrollbar for the entire body */
+/* * {
+    overflow: hidden;
+  } */
+  
+  /* Add a custom scrollbar for WebKit browsers */
+*::-webkit-scrollbar {
+    width: 0px; /* This will hide the scrollbar in WebKit browsers */
+  }
+  
+*::-webkit-scrollbar-track {
+    background: transparent; /* Change this to whatever color you want */
+  }
+  
+*::-webkit-scrollbar-thumb {
+    background: transparent; /* Change this to whatever color you want */
+  }
+  
+  .ant-image-mask {
+    border-radius: 100% !important;
+    display: none !important;
+  
+  } 
